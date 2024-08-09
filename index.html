@@ -29,15 +29,8 @@
         h1, h2 {
             color: #333;
         }
-        .contact-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .contact-info img {
-            max-width: 200px;
-            height: auto;
-            border-radius: 8px;
+        .intro, .contact-info {
+            margin-bottom: 40px;
         }
         nav {
             background-color: #333;
@@ -54,15 +47,18 @@
         nav a:hover {
             text-decoration: underline;
         }
-        section {
-            margin-bottom: 40px;
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .contact-info div {
+            max-width: 60%;
         }
-        li {
-            margin: 5px 0;
+        .contact-info img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -74,67 +70,27 @@
 </header>
 
 <nav>
-    <a href="#publications">Publications</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#photography">Photography</a>
-    <a href="#blogs">Blogs</a>
+    <a href="publications.html">Publications</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="photography.html">Photography</a>
+    <a href="blogs.html">Blogs</a>
 </nav>
 
 <div class="container">
 
     <section class="contact-info">
         <div>
-            <h2>Contact Information</h2>
-            <p>Lane 533 Jiming Road, Shanghai 200126, China</p>
-            <p>Phone: +86 152-1438-2218</p>
             <p>Email: <a href="mailto:zz4330@nyu.edu">zz4330@nyu.edu</a></p>
-            <p>GitHub: <a href="https://github.com/Exiam6" target="_blank">https://github.com/Exiam6</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/zifan-zhao-1a2984191/" target="_blank">https://www.linkedin.com/in/zifan-zhao-1a2984191/</a></p>
-            <p>Google Scholar: <a href="https://scholar.google.com/citations?user=PWVoKaoAAAAJ&hl=zh-CN&oi=sra" target="_blank">https://scholar.google.com/citations?user=PWVoKaoAAAAJ</a></p>
+            <p>GitHub: <a href="https://github.com/Exiam6" target="_blank">GitHub Profile</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/zifan-zhao-1a2984191/" target="_blank">LinkedIn Profile</a></p>
+            <p>Google Scholar: <a href="https://scholar.google.com/citations?user=PWVoKaoAAAAJ&hl=zh-CN&oi=sra" target="_blank">Google Scholar Profile</a></p>
         </div>
         <img src="https://github.com/Exiam6/Exiam6.github.io/blob/main/Sydneypic.jpg?raw=true" alt="Picture of Zifan (Eric) Zhao">
     </section>
 
-    <section id="publications">
-        <h2>Selected Publications</h2>
-        <p>Details about your publications will go here.</p>
-        <ul>
-            <li>Publication 1: Title, Journal/Conference, Year</li>
-            <li>Publication 2: Title, Journal/Conference, Year</li>
-            <li>Publication 3: Title, Journal/Conference, Year</li>
-        </ul>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>NYU Shanghai, Shanghai, China</strong> <br> Expected Graduation: May 2026 <br> Major: Computer Science and Mathematics <br> GPA: 4.0/4.0</p>
-        <p><strong>Shanghai Foreign Language School, Shanghai, China</strong> <br> Graduation: June 2022</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Developed an AI chatbot integrating ChatGPT, VITS, and Live2D with over 320,000 views on Bilibili.</li>
-            <li>Designed and maintained webpages for Digital Innovation Challenge and ACM Chapter on an independent server.</li>
-            <li>Designed a neural network called LimboNet and won first place in the CS360 Machine Learning Final Competition.</li>
-        </ul>
-    </section>
-
-    <section id="photography">
-        <h2>Photography</h2>
-        <p>This section can include a gallery or links to your photography work.</p>
-        <p>Example: <a href="https://example.com/photography" target="_blank">View my photography portfolio</a></p>
-    </section>
-
-    <section id="blogs">
-        <h2>Blogs</h2>
-        <p>Links to blog posts or a feed of your latest blog entries could go here.</p>
-        <ul>
-            <li><a href="https://example.com/blog-post-1" target="_blank">Blog Post 1 Title</a></li>
-            <li><a href="https://example.com/blog-post-2" target="_blank">Blog Post 2 Title</a></li>
-            <li><a href="https://example.com/blog-post-3" target="_blank">Blog Post 3 Title</a></li>
-        </ul>
+    <section class="intro">
+        <p>Hi, my name is Zifan (Eric) Zhao, a junior student major in Computer Science and Mathematics. My research interest lies in Multimodal AI, Embodied AI, and the Visualization of DNNs. I’m the founding chair of <a href="https://nyush.acm.org/" target="_blank">NYUSH ACM Student Chapter</a> and organized the <a href="http://www.nyushdic.com/" target="_blank">Digital Innovation Challenge 2023</a>. I have some very interesting publications and research projects, please find them below!</p>
     </section>
 
 </div>
