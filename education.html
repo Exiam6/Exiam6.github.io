@@ -3,25 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education - Zifan (Eric) Zhao</title>
+    <title>Zifan (Eric) Zhao - Academic Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f4;
         }
-        h1 {
-            color: #333;
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: white;
+        }
+        .intro, .contact-info {
+            margin-bottom: 40px;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-info div {
+            max-width: 60%;
+        }
+        .contact-info img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
-<h1>Education</h1>
-<p><strong>NYU Shanghai, Shanghai, China</strong> <br> Expected Graduation: May 2026 <br> Major: Computer Science and Mathematics <br> GPA: 4.0/4.0</p>
-<p><strong>Shanghai Foreign Language School, Shanghai, China</strong> <br> Graduation: June 2022</p>
+<header>
+    <h1>Zifan (Eric) Zhao</h1>
+    <p>Computer Science and Mathematics Student | NYU Shanghai</p>
+</header>
 
+<nav>
+    <a href="publications.html">Publications</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="photography.html">Photography</a>
+    <a href="blogs.html">Blogs</a>
+</nav>
+<div class="container">
+
+    <h1>Education</h1>
+    <p><strong>NYU Shanghai, Shanghai, China</strong> <br> Expected Graduation: May 2026 <br> Major: Computer Science and Mathematics <br> GPA: 4.0/4.0</p>
+    <p><strong>Shanghai Foreign Language School, Shanghai, China</strong> <br> Graduation: June 2022</p>
+</div>
 </body>
 </html>
