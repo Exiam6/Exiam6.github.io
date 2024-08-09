@@ -9,11 +9,40 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f4;
         }
-        h1 {
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
             color: #333;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         ul {
             list-style-type: none;
@@ -33,12 +62,30 @@
 </head>
 <body>
 
-<h1>Publications</h1>
-<ul>
-    <li><strong>Cross Entropy versus Label Smoothing: A Neural Collapse Perspective</strong><br>
-    Li Guo, Keith Ross, Zifan Zhao, George Andriopoulos, Shuyang Ling, Yufeng Xu, Zixuan Dong<br>
-    <a href="https://arxiv.org/abs/2402.03979" target="_blank">https://arxiv.org/abs/2402.03979</a></li>
-</ul>
+<header>
+    <h1>Zifan (Eric) Zhao</h1>
+    <p>Computer Science and Mathematics Student | NYU Shanghai</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="photography.html">Photography</a>
+    <a href="blogs.html">Blogs</a>
+</nav>
+
+<div class="container">
+
+    <h1>Publications</h1>
+    <ul>
+        <li><strong>Cross Entropy versus Label Smoothing: A Neural Collapse Perspective</strong><br>
+        Li Guo, Keith Ross, Zifan Zhao, George Andriopoulos, Shuyang Ling, Yufeng Xu, Zixuan Dong<br>
+        <a href="https://arxiv.org/abs/2402.03979" target="_blank">https://arxiv.org/abs/2402.03979</a></li>
+    </ul>
+
+</div>
 
 </body>
 </html>
