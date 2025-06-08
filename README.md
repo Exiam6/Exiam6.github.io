@@ -1,0 +1,1 @@
+This website’s code is adapted from Jon Barron’s public academic website (https://jonbarron.info/) and shared here for personal and academic use. Feel free to fork or reuse the code for your own site. If you do, please provide attribution to the original source or this repository.

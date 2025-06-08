@@ -5,18 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zifan (Eric) Zhao</title>
     <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .pub-list {
+            list-style: none;
+            padding: 0;
+        }
+        .pub-list li {
+            margin-bottom: 16px;
+        }
+        .pub-list hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 16px 0;
+        }
+        .pub-icon {
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <table style="width:100%;max-width:800px;border:0;border-spacing:0;border-collapse:separate;margin:0 auto;">
     <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tr>
+        <td>
+          <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:0 auto;">
             <tbody>
-              <tr style="padding:0px">
+              <tr>
                 <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p class="name" style="text-align: center;">
+                  <p class="name" style="text-align:center;">
                     Zifan (Eric) Zhao
                   </p>
                   <p>
@@ -32,9 +54,9 @@
                     <a href="https://scholar.google.com/citations?user=PWVoKaoAAAAJ&hl=zh-CN&oi=sra" target="_blank">Google Scholar</a>
                   </p>
                 </td>
-                <td style="padding:2.5%;width:37%;max-width:37%">
+                <td style="padding:2.5%;width:37%;max-width:37%;vertical-align:middle;">
                   <a href="https://github.com/Exiam6/Exiam6.github.io/blob/main/Photo6.jpg?raw=true">
-                    <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="https://github.com/Exiam6/Exiam6.github.io/blob/main/Photo6.jpg?raw=true">
+                    <img style="width:100%;max-width:100%;object-fit:cover;border-radius:50%;" alt="profile photo" src="https://github.com/Exiam6/Exiam6.github.io/blob/main/Photo6.jpg?raw=true">
                   </a>
                 </td>
               </tr>
@@ -42,10 +64,10 @@
           </table>
 
           <!-- Research Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:0 auto;">
             <tbody>
               <tr>
-                <td style="padding:16px;width:100%;vertical-align:middle">
+                <td style="padding:16px;vertical-align:middle">
                   <h2>Research</h2>
                   <p>
                     I am interested in embodied intelligence, multimodal learning, reinforcement learning, and general-purpose robotics. My current research broadly studies how to enable robots to perceive, reason, and act in real-world environments by leveraging multi-sensory signals and large-scale learning algorithms.
@@ -56,10 +78,10 @@
           </table>
 
           <!-- News Section -->
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table style="width:100%;border:0;border-spacing:0 10px;border-collapse:separate;margin:0 auto;">
             <tbody>
               <tr>
-                <td style="padding:16px;width:100%;vertical-align:middle">
+                <td style="padding:16px;vertical-align:middle">
                   <h2>News</h2>
                   <ul>
                     <li><strong>2025-04:</strong> One <a href="https://arxiv.org/abs/2402.03979" target="_blank">paper</a> is accepted at TMLR 2025.</li>
@@ -73,25 +95,24 @@
           </table>
 
           <!-- Publications Section -->
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table style="width:100%;border:0;border-spacing:0 10px;border-collapse:separate;margin:0 auto;">
             <tbody>
               <tr>
-                <td style="padding:16px;width:100%;vertical-align:middle">
+                <td style="padding:16px;vertical-align:middle">
                   <h2>Publications</h2>
-                  <ul>
+                  <ul class="pub-list">
                     <li>
-                      <strong>Cross Entropy versus Label Smoothing: A Neural Collapse Perspective</strong><br>
+                      <img src="LS.png" alt="Label Smoothing icon" class="pub-icon">
+                      <a href="https://arxiv.org/abs/2402.03979" target="_blank"><strong>Cross Entropy versus Label Smoothing: A Neural Collapse Perspective</strong></a><br>
                       Li Guo, Keith Ross, <u><b>Zifan Zhao</b></u>, George Andriopoulos, Shuyang Ling, Yufeng Xu, Zixuan Dong<br>
-                      <a href="https://arxiv.org/abs/2402.03979" target="_blank">https://arxiv.org/abs/2402.03979</a><br>
-                      <b>TMLR 2025</b>
+                      <em>TMLR 2025</em>
                     </li>
-                  </ul>
-                  <ul>
+                    <hr>
                     <li>
-                      <strong>The Prevalence of Neural Collapse in Neural Multivariate Regression</strong><br>
+                      <img src="NRC.png" alt="Neural Collapse icon" class="pub-icon">
+                      <a href="https://arxiv.org/abs/2409.04180" target="_blank"><strong>The Prevalence of Neural Collapse in Neural Multivariate Regression</strong></a><br>
                       <u><b>Zifan Zhao*</b></u>, Li Guo*, George Andriopoulos*, Zixuan Dong*, Keith Ross*†<br>
-                      <a href="https://arxiv.org/abs/2409.04180" target="_blank">https://arxiv.org/abs/2409.04180</a><br>
-                      <b>NeurIPS 2024</b>
+                      <em>NeurIPS 2024</em>
                     </li>
                   </ul>
                   <p>* indicates equal contribution.</p>
