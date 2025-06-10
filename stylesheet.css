@@ -236,3 +236,12 @@ tr.divider hr {
 .flip-container .back {
   transform: rotateY(180deg);
 }
+
+@media (max-width: 600px) {
+  .profile-row td {
+    display: block;
+    width: 100% !important;
+    padding: 1em 0 !important;
+    vertical-align: top !important;
+  }
+}
