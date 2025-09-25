@@ -251,7 +251,7 @@ tr.divider hr {
 /* Ensure the flip box has real height (no more height:0) */
 .flip-container { position: relative; width: 100%; }
 .profile-pic .flip-container { /* keep your current visual size; stays responsive */
-  aspect-ratio: 1 / 1;                /* square so the circle stays perfect */
+  aspect-ratio: 10 / 13;                /* square so the circle stays perfect */
 }
 
 /* Let the inner faces fill the box */
@@ -295,7 +295,7 @@ tr.divider hr {
 /* Limit width so it doesn't consume the whole row on phones */
 .profile-pic .flip-container {
   width: clamp(180px, 60vw, 280px);  /* min 180px, max 280px, fluid in between */
-  aspect-ratio: 1 / 1;               /* perfect square for a perfect circle */
+  aspect-ratio: 10 / 13;               /* perfect square for a perfect circle */
   position: relative;
   margin: 0 auto;
   border-radius: 50%;
