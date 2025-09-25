@@ -276,7 +276,7 @@ tr.divider hr {
   .flip-container .flipper { transition: none; }
 }
 /* Give the container real height and fill children */
-.profile-pic .flip-container { aspect-ratio: 1 / 1; position: relative; width: 100%; }
+.profile-pic .flip-container { aspect-ratio: 10 / 13; position: relative; width: 100%; }
 
 .flip-container .flipper { height: 100% !important; }
 .flip-container .front,
@@ -321,3 +321,79 @@ tr.divider hr {
 
 /* Programmatic flip still works */
 .flip-container.is-flipped .flipper { transform: rotateY(180deg); }
+
+/* --- Profile image cell --- */
+.profile-pic { 
+  text-align: center; 
+  vertical-align: top; 
+  padding: 2.5%;
+}
+
+/* Avatar container: bounded & responsive */
+.profile-pic .flip-container {
+  --avatar-min: 180px;
+  --avatar-max: 280px;
+
+  width: clamp(var(--avatar-min), 60vw, var(--avatar-max));
+  aspect-ratio: 10 / 13;                 /* square for a true circular crop */
+  margin: 0 auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  display: block;
+
+  perspective: 1000px;
+  border-radius: 50%;
+  overflow: hidden;                     /* prevents bleed during rotate */
+  cursor: pointer;
+}
+
+/* Inner flipper + faces */
+.flip-container .flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.flip-container .front,
+.flip-container .back {
+  position: absolute;
+  inset: 0;                             /* top:0;right:0;bottom:0;left:0 */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;  /* iOS/Safari */
+}
+.flip-container .back { transform: rotateY(180deg); }
+
+/* Flip on hover (desktop) and when toggled (mobile/keyboard) */
+.flip-container:hover .flipper,
+.flip-container.is-flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+/* Images fill their face cleanly */
+.profile-pic .flip-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* nice crop */
+  display: block;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .flip-container .flipper { transition: none; }
+}
+
+/* Stack layout on small screens without letting image take the whole page width */
+@media (max-width: 600px) {
+  .profile-row td {
+    display: block;
+    width: 100% !important;
+    padding: 1em 0 !important;
+    vertical-align: top !important;
+  }
+  /* You can shrink the avatar further on very small phones if desired */
+  .profile-pic .flip-container {
+    --avatar-max: 240px;
+  }
+}
