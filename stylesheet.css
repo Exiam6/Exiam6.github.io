@@ -286,13 +286,38 @@ tr.divider hr {
 .flip-container .front,
 .flip-container .back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 
-/* Your images currently have inline height:auto; override so they fill the face */
+/* Keep your programmatic flip class */
+.flip-container.is-flipped .flipper { transform: rotateY(180deg); }
+
+/* === Flip avatar: mobile-friendly sizing & containment === */
+.profile-pic { text-align: center; } /* keeps it centered in your table cell */
+
+/* Limit width so it doesn't consume the whole row on phones */
+.profile-pic .flip-container {
+  width: clamp(180px, 60vw, 280px);  /* min 180px, max 280px, fluid in between */
+  aspect-ratio: 1 / 1;               /* perfect square for a perfect circle */
+  position: relative;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;                  /* prevent any bleed on rotate */
+}
+
+/* Fill the box properly (override earlier height:0 + inline height:auto) */
+.flip-container .flipper { height: 100% !important; }
+.flip-container .front,
+.flip-container .back  { width: 100%; height: 100% !important; }
+
+/* iOS/Safari 3D handling */
+.flip-container .front,
+.flip-container .back  { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+
+/* Make the images fill the faces cleanly */
 .profile-pic .flip-container img {
-  height: 130% !important;
   width: 100%;
+  height: 100% !important;  /* fill the square face, keeps circle via overflow + radius */
   object-fit: cover;
   border-radius: 50%;
 }
 
-/* Keep your programmatic flip class */
+/* Programmatic flip still works */
 .flip-container.is-flipped .flipper { transform: rotateY(180deg); }

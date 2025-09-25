@@ -9,39 +9,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
 
-  <script defer>
-    (function () {
-      const fc = document.querySelector('.flip-container');
-      if (!fc) return;
-      const flipper = fc.querySelector('.flipper');
-    
-      // Make it accessible without editing your HTML
-      fc.setAttribute('tabindex', '0');
-      fc.setAttribute('role', 'button');
-      fc.setAttribute('aria-label', 'Flip profile photo');
-      fc.setAttribute('aria-pressed', 'false');
-    
-      function toggleFlip() {
-        const flipped = fc.classList.toggle('is-flipped');
-        fc.setAttribute('aria-pressed', flipped ? 'true' : 'false');
-      }
-    
-      // Tap / click
-      fc.addEventListener('click', function (e) {
-        // Avoid accidental text selection triggering issues on mobile
-        toggleFlip();
-      });
-    
-      // Keyboard (Enter/Space)
-      fc.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleFlip();
-        }
-      });
-    })();
-  </script>
-
   <body>
     <table class="profile-row" style="width:100%;max-width:800px;border:0;border-spacing:0;border-collapse:separate;margin:0 auto;"><tbody>
       <tr>
@@ -51,10 +18,10 @@
               <td class="profile-text" style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align:center;">Zifan (Eric) Zhao</p>
                 <p>
-                  I'm a senior undergraduate at NYU Shanghai majoring in Computer Science and Mathematics. My research interests lie in embodied intelligence, multimodal representation learning, and reinforcement learning.
+                  I'm a junior undergraduate at NYU Shanghai majoring in Computer Science and Mathematics. My research interests lie in embodied intelligence, multimodal representation learning, and reinforcement learning.
                 </p>
                 <p>
-                  I'm currently working with <a href="https://www.lerrelpinto.com/" target="_blank">Prof. Lerrel Pinto</a> in the General-purpose Robotics and AI Labs (GRAIL) and <a href="https://www.sainingxie.com/" target="_blank">Prof. Saining Xie</a> at VISIONx. I’m the founding chair of <a href="https://nyush.acm.org/" target="_blank">NYUSH ACM Student Chapter</a> and organized the <a href="http://www.nyushdic.com/" target="_blank">Digital Innovation Challenge 2023</a>.
+                  I'm currently working with <a href="https://www.lerrelpinto.com/" target="_blank">Prof. Lerrel Pinto</a> in the General-purpose Robotics and AI Labs (GRAIL). I’m the founding chair of <a href="https://nyush.acm.org/" target="_blank">NYUSH ACM Student Chapter</a> and organized the <a href="http://www.nyushdic.com/" target="_blank">Digital Innovation Challenge 2023</a>.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:zz4330@nyu.edu">Email</a> &nbsp;/&nbsp;
@@ -92,8 +59,7 @@
                 <h2>News</h2>
                 <hr class="section-divider">
                 <ul>
-                  <li><strong>2025-09:</strong> <a href="https://vitalprecise.github.io/" target="_blank">ViTaL</a> was accepted at CoRL 2025 as a workshop best paper! See you in Korea!</li>
-                  <li><strong>2025-07:</strong> We've released <a href="https://vitalprecise.github.io/" target="_blank">ViTaL</a>, a framework for precise, generalizable robot manipulation.</li>
+                  <li><strong>2025-07:</strong> We've released <a href="https://vitalprecise.github.io/" target="_blank">ViTaL</a>, a framework for precise, generalizable robot manipulation</li>
                   <li><strong>2025-04:</strong> One <a href="https://arxiv.org/abs/2402.03979" target="_blank">paper</a> is accepted at TMLR 2025.</li>
                   <li><strong>2024-09:</strong> One <a href="https://arxiv.org/abs/2409.04180" target="_blank">paper</a> is accepted at NeurIPS 2024.</li>
                   <li><strong>2024-08:</strong> Our TARS robot from <em>Interstellar</em> took its first step! <a href="https://www.youtube.com/shorts/3q91EYxd1DA" target="_blank">Watch here</a>.</li>
@@ -119,11 +85,9 @@
                         </div>
                       </td>
                       <td style="width:60%;vertical-align:middle">
-                          <span class="papertitle"><a href="https://vitalprecise.github.io/" target="_blank"><strong>Touch begins where vision ends: Generalizable policies for contact-rich manipulation</strong></a></span><br>
-                          <u><b>Zifan Zhao</b></u>, Siddhant Haldar, Jinda Cui, Lerrel Pinto, Raunaq Bhirangi†<br>
-                          <em>CoRL 2025 Rational Robots Workshop (<span style="color:red;">Best Paper</span>)</em><br>
-                          <em>CoRL 2025 GenPriors Workshop (<span style="color:red;">Oral Presentation</span>)</em><br>
-                          <em>RSS 2025 Workshops</em>
+                        <span class="papertitle"><a href="hhttps://vitalprecise.github.io/" target="_blank"><strong>Touch begins where vision ends: Generalizable policies for contact-rich manipulation</strong></a></span><br>
+                        <u><b>Zifan Zhao</b></u>,  Siddhant Haldar, Jinda Cui, Lerrel Pinto, Raunaq Bhirangi†<br>
+                        <em>RSS 2025 Workshops</em>
                       </td>
                     </tr>
 
