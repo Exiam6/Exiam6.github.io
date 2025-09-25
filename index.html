@@ -9,6 +9,39 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
 
+  <script defer>
+    (function () {
+      const fc = document.querySelector('.flip-container');
+      if (!fc) return;
+      const flipper = fc.querySelector('.flipper');
+    
+      // Make it accessible without editing your HTML
+      fc.setAttribute('tabindex', '0');
+      fc.setAttribute('role', 'button');
+      fc.setAttribute('aria-label', 'Flip profile photo');
+      fc.setAttribute('aria-pressed', 'false');
+    
+      function toggleFlip() {
+        const flipped = fc.classList.toggle('is-flipped');
+        fc.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+      }
+    
+      // Tap / click
+      fc.addEventListener('click', function (e) {
+        // Avoid accidental text selection triggering issues on mobile
+        toggleFlip();
+      });
+    
+      // Keyboard (Enter/Space)
+      fc.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFlip();
+        }
+      });
+    })();
+  </script>
+
   <body>
     <table class="profile-row" style="width:100%;max-width:800px;border:0;border-spacing:0;border-collapse:separate;margin:0 auto;"><tbody>
       <tr>
