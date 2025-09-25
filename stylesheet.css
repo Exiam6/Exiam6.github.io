@@ -288,7 +288,7 @@ tr.divider hr {
 
 /* Your images currently have inline height:auto; override so they fill the face */
 .profile-pic .flip-container img {
-  height: 150% !important;
+  height: 130% !important;
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
