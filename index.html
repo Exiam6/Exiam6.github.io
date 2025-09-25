@@ -6,7 +6,302 @@
     <meta name="author" content="Zifan (Eric) Zhao">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <style>
+      /* latin-ext */
+      @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 400;
+        src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 400;
+        src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 700;
+        src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 700;
+        src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      a {
+        color: #1772d0;
+        text-decoration: none;
+      }
+
+      a:focus,
+      a:hover {
+        color: #f09228;
+        text-decoration: none;
+      }
+
+      body,
+      td,
+      th,
+      tr,
+      p,
+      a {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      strong {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      h2 {
+        margin: 0;
+        font-weight: normal;
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 22px;
+      }
+
+      .papertitle {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .name {
+        padding-top: 20px;
+        margin: 0;
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-size: 32px;
+      }
+
+      .one {
+        width: 160px;
+        height: 160px;
+        position: relative;
+      }
+
+      .two {
+        width: 160px;
+        height: 160px;
+        position: absolute;
+        transition: opacity .2s ease-in-out;
+        -moz-transition: opacity .2s ease-in-out;
+        -webkit-transition: opacity .2s ease-in-out;
+      }
+
+      .fade {
+        transition: opacity .2s ease-in-out;
+        -moz-transition: opacity .2s ease-in-out;
+        -webkit-transition: opacity .2s ease-in-out;
+      }
+
+      span.highlight {
+        background-color: #ffffd0;
+      }
+
+      .colored-box {
+        color: black;
+        padding: 20px;
+        display: inline-block;
+        border-radius: 10px;
+      }
+
+      /* Add spacing between paper entries */
+      tr {
+        margin-bottom: 10px;
+        display: block;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      tr:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      /* Increase spacing between image and text */
+      td:first-child {
+        padding-right: 30px;
+      }
+
+      /* Image and video styles */
+      .one {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+        position: relative;
+        margin-bottom: 10px;
+      }
+      .one:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      .one img,
+      .one video {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+        background-color: #fff;
+      }
+
+      .section-divider {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 8px 0 16px;
+        width: 100%;
+        height: 0;
+      }
+
+      tr.divider hr {
+        margin: 24px 0;
+        border: none;
+        border-top: 1px solid #ccc;
+      }
+
+      /* FIXED 3D flip container - Critical mobile fix */
+      .profile-pic {
+        padding: 2.5%;
+        width: 37%;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .flip-container {
+        width: 200px;
+        height: 200px;
+        max-width: 100%;
+        perspective: 1000px;
+        margin: 0 auto;
+        position: relative;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
+        display: block;
+      }
+
+      .flipper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+      }
+
+      .flip-container:hover .flipper,
+      .flip-container.is-flipped .flipper {
+        transform: rotateY(180deg);
+      }
+
+      /* front/back faces */
+      .front,
+      .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .back {
+        transform: rotateY(180deg);
+      }
+
+      /* Images fill properly */
+      .flip-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Mobile responsive */
+      @media (max-width: 600px) {
+        .profile-row td {
+          display: block;
+          width: 100% !important;
+          padding: 1em 0 !important;
+          vertical-align: top !important;
+          text-align: center;
+        }
+        
+        .profile-pic {
+          width: 100% !important;
+        }
+
+        .flip-container {
+          width: 180px;
+          height: 180px;
+        }
+
+        .profile-text {
+          text-align: left;
+        }
+
+        .profile-text .name {
+          text-align: center;
+        }
+      }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .flipper {
+          transition: none;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -22,7 +317,7 @@
                   My research interests lie in embodied intelligence, multimodal representation learning, and reinforcement learning.
                 </p>
                 <p>
-                  I'm currently working with <a href="https://www.lerrelpinto.com/" target="_blank">Prof. Lerrel Pinto</a> in the General-purpose Robotics and AI Labs (GRAIL) and <a href="https://www.sainingxie.com/" target="_blank">Prof. Saining Xie</a> at VISIONx. I’m the founding chair of <a href="https://nyush.acm.org/" target="_blank">NYUSH ACM Student Chapter</a> and organized the <a href="http://www.nyushdic.com/" target="_blank">Digital Innovation Challenge 2023</a>.
+                  I'm currently working with <a href="https://www.lerrelpinto.com/" target="_blank">Prof. Lerrel Pinto</a> in the General-purpose Robotics and AI Labs (GRAIL) and <a href="https://www.sainingxie.com/" target="_blank">Prof. Saining Xie</a> at VISIONx. I'm the founding chair of <a href="https://nyush.acm.org/" target="_blank">NYUSH ACM Student Chapter</a> and organized the <a href="http://www.nyushdic.com/" target="_blank">Digital Innovation Challenge 2023</a>.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:zz4330@nyu.edu">Email</a> &nbsp;/&nbsp;
@@ -32,7 +327,7 @@
                 </p>
               </td>
               <td class="profile-pic">
-                <button class="flip-container" aria-label="Flip profile photo" type="button">
+                <button class="flip-container" aria-label="Flip profile photo" type="button" onclick="this.classList.toggle('is-flipped')">
                   <div class="flipper">
                     <div class="front">
                       <img src="images/Photo6.jpg" alt="profile photo front">
@@ -43,7 +338,6 @@
                   </div>
                 </button>
               </td>
-            </td>
             </tr>
           </tbody></table>
 
