@@ -172,11 +172,15 @@
       .one {
         width: 100%;
         max-width: 100%;
+        aspect-ratio: 16 / 10;
         overflow: hidden;
         border-radius: 8px;
         background-color: #f5f5f5;
         position: relative;
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .one:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -184,9 +188,9 @@
       .one img,
       .one video {
         width: 100%;
-        height: auto;
+        height: 100%;
         display: block;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 4px;
         transition: transform 0.3s ease;
         background-color: #fff;
@@ -337,6 +341,7 @@
                 <h2>News</h2>
                 <hr class="section-divider">
                 <ul>
+                  <li><strong>2026-05:</strong> Released <a href="https://cambrian-mllm.github.io/cambrian-p" target="_blank">Cambrian-P</a>, a pose-grounded video understanding model.</li>
                   <li><strong>2025-09:</strong> <a href="https://vitalprecise.github.io/" target="_blank">ViTaL</a> was accepted at CoRL 2025 as a workshop best paper! See you in Korea!</li>
                   <li><strong>2025-07:</strong> We've released <a href="https://vitalprecise.github.io/" target="_blank">ViTaL</a>, a framework for precise, generalizable robot manipulation</li>
                   <li><strong>2025-04:</strong> One <a href="https://arxiv.org/abs/2402.03979" target="_blank">paper</a> is accepted at TMLR 2025.</li>
@@ -355,6 +360,20 @@
                 <hr class="section-divider">
                 <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:0;">
                   <tbody>
+
+                    <!-- Cambrian-P -->
+                    <tr>
+                      <td style="width:43%;vertical-align:middle">
+                        <div class="one">
+                          <img src="images/cambrian-p-teaser.png" alt="Cambrian-P teaser">
+                        </div>
+                      </td>
+                      <td style="width:60%;vertical-align:middle">
+                        <span class="papertitle"><a href="https://cambrian-mllm.github.io/cambrian-p" target="_blank"><strong>Cambrian-P: Pose-Grounded Video Understanding</strong></a></span><br>
+                        Jihan Yang*, <u><b>Zifan Zhao*</b></u>, Xichen Pan, Shusheng Yang, Junyi Zhang, Bingyi Kang, Hu Xu, Saining Xie<br>
+                        <em>arXiv 2026</em>
+                      </td>
+                    </tr>
 
                     <!--ViTaL -->
                     <tr>
