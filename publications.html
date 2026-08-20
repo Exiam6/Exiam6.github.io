@@ -26,7 +26,10 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+        /* Was `h1, h2 { color: white }`, which was meant for the dark header
+           but also hit the headings inside .container — white on a white card,
+           so every page title was invisible. Scoped to the header and nav. */
+        header h1, header h2 {
             color: white;
         }
         .intro, .contact-info {
@@ -67,7 +70,7 @@
 <a href="index.html">
     <header>
         <h1>Zifan (Eric) Zhao</h1>
-        <p>Computer Science and Mathematics | NYU Shanghai</p>
+        <p>PhD Student | University of Illinois Urbana-Champaign</p>
     </header>
 </a>
     

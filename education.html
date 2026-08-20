@@ -26,7 +26,10 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+        /* Was `h1, h2 { color: white }`, which was meant for the dark header
+           but also hit the headings inside .container — white on a white card,
+           so every page title was invisible. Scoped to the header and nav. */
+        header h1, header h2 {
             color: white;
         }
         .intro, .contact-info {
@@ -67,7 +70,7 @@
 <a href="index.html">
     <header>
         <h1>Zifan (Eric) Zhao</h1>
-        <p>Computer Science and Mathematics | NYU Shanghai</p>
+        <p>PhD Student | University of Illinois Urbana-Champaign</p>
     </header>
 </a>
 <nav>
@@ -80,7 +83,8 @@
 <div class="container">
 
     <h1>Education</h1>
-    <p><strong>NYU Shanghai, Shanghai, China</strong> <br> Expected Graduation: May 2026 <br> Major: Computer Science and Mathematics <br> GPA: 4.0/4.0</p>
+    <p><strong>University of Illinois Urbana-Champaign, Illinois, USA</strong> <br> Ph.D. in Computer Science <br> Advised by <a href="https://saurabhg.web.illinois.edu/" target="_blank" rel="noopener">Prof. Saurabh Gupta</a> and <a href="https://shenlong.web.illinois.edu/" target="_blank" rel="noopener">Prof. Shenlong Wang</a></p>
+    <p><strong>NYU Shanghai, Shanghai, China</strong> <br> Graduated: January 2026 <br> Major: Computer Science and Mathematics <br> GPA: 4.0/4.0</p>
     <p><strong>Shanghai Foreign Language School, Shanghai, China</strong> <br> Graduation: June 2022</p>
 </div>
 </body>
