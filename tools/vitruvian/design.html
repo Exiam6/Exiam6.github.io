@@ -1,0 +1,224 @@
+<title>维特鲁威自动机机械设计</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --ground:#f4f3f0; --paper:#ffffff; --ink:#1f1c18; --muted:#6c665d; --rule:#e2ded6;
+  --sang:#8a6a4f; --sang-ink:#6e523b; --hot:#a8552b; --chip:#ece8e1; --hyd:#a8552b; --hyd-soft:rgba(168,85,43,.14);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#1b1917; --paper:#242120; --ink:#ebe6de; --muted:#a39c92; --rule:#3a3632;
+    --sang:#b08a6a; --sang-ink:#c9a382; --hot:#d4794f; --chip:#2f2b28; --hyd:#d4794f; --hyd-soft:rgba(212,121,79,.18);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1b1917; --paper:#242120; --ink:#ebe6de; --muted:#a39c92; --rule:#3a3632;
+  --sang:#b08a6a; --sang-ink:#c9a382; --hot:#d4794f; --chip:#2f2b28; --hyd:#d4794f; --hyd-soft:rgba(212,121,79,.18);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Lato,"PingFang SC","Hiragino Sans GB","Noto Sans SC",Helvetica,sans-serif;font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:32px 22px 80px}
+h1{margin:0 0 6px;font-family:Newsreader,Georgia,"Songti SC",serif;font-weight:500;font-size:36px;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+.lede{margin:0 0 26px;color:var(--muted);max-width:60ch}
+h2{margin:36px 0 10px;font-family:Newsreader,Georgia,"Songti SC",serif;font-weight:500;font-size:24px;line-height:1.2}
+p{margin:0 0 12px;max-width:68ch}
+.thesis{background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--hyd);border-radius:6px;padding:14px 18px;margin:18px 0 6px}
+.thesis p{margin:0;max-width:none}
+figure{margin:18px 0 8px;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px 16px 10px}
+figure svg{display:block;width:100%;max-width:100%;height:auto}
+figcaption{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:8px 0 0;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:0;border-top:2px solid currentColor;display:inline-block}
+.sw--hyd{color:var(--hyd)}
+.sw--line{border-top-style:dashed;color:var(--hyd)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-top:1px solid var(--rule)}
+th{font-weight:700;color:var(--muted);font-size:12.5px;letter-spacing:.04em;border-top:0}
+td:first-child{font-weight:700;white-space:nowrap}
+.tbl{overflow-x:auto}
+ol,ul{padding-left:1.3em;max-width:68ch}
+li{margin:0 0 7px}
+.rule{margin:0 0 6px;font-weight:700}
+small.note{display:block;margin-top:14px;color:var(--muted);font-size:13px}
+</style>
+<div class="wrap">
+  <h1>维特鲁威自动机机械设计</h1>
+  <p class="lede">给主页那张图版里的人形自动机一套说得通的内部结构。原版已经画出的东西都保留并给出解释，新画的东西只在这套设计里选。</p>
+
+  <div class="thesis"><p><strong>一句话：</strong>液压驱动的人形自动机。脊椎是结构骨干，也是液压干线的通道；每一个关节由一支直线液压缸驱动，像肌肉一样跨在关节两侧；动力核心和齿轮泵在胸腔，蓄能器在腹腔。齿轮只出现在一个地方——泵里，因为齿轮泵本来就是两枚啮合的齿轮。</p></div>
+
+  <h2>总图</h2>
+  <figure>
+    <svg viewBox="0 0 760 860" role="img" aria-label="自动机正视示意图：中轴脊椎，胸腔里的齿轮泵和动力核心，腹腔的蓄能器和骨盆环，每个关节旁各一支液压缸，两根干线沿脊椎向下并分支到四肢。" style="color:var(--ink)">
+      <defs>
+        <symbol id="cyl" overflow="visible">
+          <rect x="0" y="-6" width="34" height="12" rx="3" fill="var(--hyd-soft)" stroke="var(--hyd)" stroke-width="2"/>
+          <line x1="27" y1="-8" x2="27" y2="8" stroke="var(--hyd)" stroke-width="2"/>
+          <line x1="34" y1="0" x2="56" y2="0" stroke="var(--hyd)" stroke-width="2.5"/>
+          <circle cx="59" cy="0" r="3.5" fill="none" stroke="var(--hyd)" stroke-width="2"/>
+        </symbol>
+        <symbol id="joint" overflow="visible">
+          <circle cx="0" cy="0" r="9" fill="var(--paper)" stroke="currentColor" stroke-width="2"/>
+          <line x1="-4" y1="0" x2="4" y2="0" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="currentColor" stroke-width="1.5"/>
+        </symbol>
+      </defs>
+
+      <!-- structure: head, neck, shoulders, spine, rib hoops, pelvis girdle -->
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <ellipse cx="380" cy="78" rx="30" ry="38"/>
+        <line x1="380" y1="116" x2="380" y2="150"/>
+        <path d="M262 176 Q380 156 498 176"/>
+        <path d="M300 212 Q345 200 366 206 M300 250 Q345 240 366 246 M304 288 Q345 280 366 286 M312 326 Q346 320 366 326"/>
+        <ellipse cx="380" cy="486" rx="92" ry="22"/>
+        <!-- limbs -->
+        <path d="M262 176 L200 320 L152 452"/>
+        <path d="M498 176 L560 320 L608 452"/>
+        <path d="M332 494 L318 650 L312 800"/>
+        <path d="M428 494 L442 650 L448 800"/>
+        <!-- feet -->
+        <path d="M312 800 L262 826 L318 826 Z M448 800 L498 826 L442 826 Z"/>
+        <!-- hands: five fingers as a small fan -->
+        <path d="M152 452 L120 470 M152 452 L128 484 M152 452 L142 494 M152 452 L158 496 M152 452 L134 448"/>
+        <path d="M608 452 L640 470 M608 452 L632 484 M608 452 L618 494 M608 452 L602 496 M608 452 L626 448"/>
+      </g>
+      <!-- spine: vertebra stack on the axis -->
+      <g fill="var(--paper)" stroke="currentColor" stroke-width="2">
+        <ellipse cx="380" cy="160" rx="15" ry="6"/><ellipse cx="380" cy="184" rx="15" ry="6"/>
+        <ellipse cx="380" cy="208" rx="15" ry="6"/><ellipse cx="380" cy="232" rx="15" ry="6"/>
+        <ellipse cx="380" cy="256" rx="15" ry="6"/><ellipse cx="380" cy="280" rx="15" ry="6"/>
+        <ellipse cx="380" cy="304" rx="15" ry="6"/><ellipse cx="380" cy="328" rx="15" ry="6"/>
+        <ellipse cx="380" cy="352" rx="15" ry="6"/><ellipse cx="380" cy="376" rx="15" ry="6"/>
+        <ellipse cx="380" cy="400" rx="15" ry="6"/><ellipse cx="380" cy="424" rx="15" ry="6"/>
+        <ellipse cx="380" cy="448" rx="15" ry="6"/>
+      </g>
+      <!-- joints -->
+      <use href="#joint" x="262" y="176"/><use href="#joint" x="498" y="176"/>
+      <use href="#joint" x="200" y="320"/><use href="#joint" x="560" y="320"/>
+      <use href="#joint" x="152" y="452"/><use href="#joint" x="608" y="452"/>
+      <use href="#joint" x="332" y="494"/><use href="#joint" x="428" y="494"/>
+      <use href="#joint" x="318" y="650"/><use href="#joint" x="442" y="650"/>
+      <use href="#joint" x="312" y="800"/><use href="#joint" x="448" y="800"/>
+
+      <!-- power: core (hidden side), gear pump, accumulator -->
+      <rect x="404" y="196" width="54" height="42" rx="5" fill="var(--paper)" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/>
+      <circle cx="431" cy="217" r="9" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/>
+      <line x1="404" y1="256" x2="352" y2="256" stroke="currentColor" stroke-width="2"/>
+      <circle cx="326" cy="256" r="26" fill="var(--hyd-soft)" stroke="var(--hyd)" stroke-width="2.2"/>
+      <circle cx="316" cy="256" r="9" fill="none" stroke="var(--hyd)" stroke-width="2"/>
+      <circle cx="336" cy="256" r="9" fill="none" stroke="var(--hyd)" stroke-width="2"/>
+      <rect x="402" y="392" width="34" height="58" rx="12" fill="var(--hyd-soft)" stroke="var(--hyd)" stroke-width="2.2"/>
+      <rect x="286" y="404" width="32" height="46" rx="8" fill="var(--hyd-soft)" stroke="var(--hyd)" stroke-width="2.2"/>
+      <line x1="290" y1="418" x2="314" y2="418" stroke="var(--hyd)" stroke-width="1.5"/>
+      <!-- valve blocks at each limb root -->
+      <g fill="var(--paper)" stroke="var(--hyd)" stroke-width="2">
+        <rect x="278" y="292" width="16" height="16" rx="2"/><rect x="466" y="292" width="16" height="16" rx="2"/>
+        <rect x="322" y="492" width="16" height="16" rx="2"/><rect x="420" y="492" width="16" height="16" rx="2"/>
+      </g>
+
+      <!-- hydraulic lines: trunk down the spine, branches to each limb -->
+      <g fill="none" stroke="var(--hyd)" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round">
+        <path d="M326 282 L326 470"/>
+        <path d="M356 282 L356 470"/>
+        <path d="M326 440 L318 440"/>
+        <path d="M302 404 L298 300 L304 268"/>
+        <path d="M326 300 L294 300 M278 300 L262 200"/>
+        <path d="M356 300 L466 300 M482 300 L498 200"/>
+        <path d="M326 470 L330 492 M330 508 L326 620"/>
+        <path d="M356 470 L428 492 M428 508 L436 620"/>
+        <path d="M402 420 L356 420"/>
+      </g>
+
+      <!-- actuators: one cylinder per joint, laid along the segment that carries it -->
+      <use href="#cyl" transform="translate(300 214) rotate(-64)"/>            <!-- shoulder: in the chest, rod up to the ball -->
+      <use href="#cyl" transform="translate(468 214) rotate(-116)"/>
+      <use href="#cyl" transform="translate(258 196) rotate(114)"/>            <!-- elbow: in the upper arm -->
+      <use href="#cyl" transform="translate(502 196) rotate(66)"/>
+      <use href="#cyl" transform="translate(196 334) rotate(110)"/>            <!-- wrist and finger tendons: in the forearm -->
+      <use href="#cyl" transform="translate(564 334) rotate(70)"/>
+      <use href="#cyl" transform="translate(352 456) rotate(70)"/>             <!-- hip: in the pelvis, diagonal -->
+      <use href="#cyl" transform="translate(408 456) rotate(110)"/>
+      <use href="#cyl" transform="translate(326 508) rotate(95)"/>             <!-- knee: in the thigh -->
+      <use href="#cyl" transform="translate(434 508) rotate(85)"/>
+      <use href="#cyl" transform="translate(314 664) rotate(92)"/>             <!-- ankle: in the shin -->
+      <use href="#cyl" transform="translate(446 664) rotate(88)"/>
+      <use href="#cyl" transform="translate(368 120) rotate(90) scale(.55)"/>  <!-- neck: two short cylinders -->
+      <use href="#cyl" transform="translate(392 120) rotate(90) scale(.55)"/>
+
+      <!-- labels -->
+      <g font-family="Lato, 'PingFang SC', 'Noto Sans SC', sans-serif" font-size="12.5" fill="currentColor">
+        <text x="30" y="110">颈缸 ×2</text><line x1="88" y1="106" x2="362" y2="128" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="150">肩关节球 + 肩缸</text><line x1="146" y1="146" x2="288" y2="204" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="258">齿轮泵</text><line x1="84" y1="254" x2="298" y2="256" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="298">干线 ×2：压力线 / 回油线</text><line x1="196" y1="294" x2="322" y2="330" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="336">阀块 ×4，各肢根部</text><line x1="130" y1="332" x2="278" y2="302" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="222">肋箍 ×4，从脊椎到壳体</text><line x1="164" y1="218" x2="302" y2="212" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="524">油箱（回油终点，泵的吸口）</text><line x1="218" y1="520" x2="296" y2="450" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="370">肘缸，在上臂壳内</text><line x1="150" y1="366" x2="234" y2="250" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="410">腕缸 + 指腱，在前臂内</text><line x1="176" y1="406" x2="188" y2="374" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="594">髋缸 ×2，在骨盆环内</text><line x1="166" y1="590" x2="352" y2="462" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="640">膝缸 + 导向槽，在大腿内</text><line x1="190" y1="636" x2="318" y2="560" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="30" y="760">踝缸，在小腿内</text><line x1="130" y1="756" x2="310" y2="720" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="560" y="150">脊椎：13 节椎片，中轴</text><line x1="556" y1="146" x2="398" y2="184" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="560" y="228">动力核心（壳体后面，不露）</text><line x1="556" y1="224" x2="460" y2="216" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="560" y="262">驱动轴穿过壳体</text><line x1="556" y1="258" x2="392" y2="256" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="560" y="420">蓄能器，在腹腔</text><line x1="556" y1="416" x2="438" y2="420" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="560" y="500">骨盆环，髋关节坐在环上</text><line x1="556" y1="496" x2="474" y2="486" stroke="currentColor" stroke-width="1" opacity=".55"/>
+        <text x="560" y="660">关节环上的十字销 = 转轴端面</text><line x1="556" y1="656" x2="452" y2="652" stroke="currentColor" stroke-width="1" opacity=".55"/>
+      </g>
+    </svg>
+    <figcaption>正视示意。实线是结构，赭色实心是液压缸、泵、蓄能器和油箱，赭色虚线是管路。回路：油箱 → 齿轮泵 → 蓄能器 → 压力线 → 各肢根部的阀块 → 液压缸 → 回油线 → 油箱。每个关节旁一支缸，装在靠近躯干的那一段肢体壳内，活塞杆跨过关节推动下一段。</figcaption>
+    <div class="legend"><span><i class="sw"></i>结构</span><span><i class="sw sw--hyd"></i>液压缸 / 泵 / 蓄能器</span><span><i class="sw sw--line"></i>液压管路</span></div>
+  </figure>
+
+  <h2>三个分系统</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>部件</th><th>位置</th><th>作用</th><th>原版里对应的元素</th></tr></thead>
+    <tbody>
+      <tr><td>脊椎</td><td>身体中轴，胸腔到骨盆</td><td>承力骨干，每节之间一个万向节；两根液压干线沿它向下</td><td>胸腔里那列椎片，腰线以下的两片小椎片</td></tr>
+      <tr><td>肋箍</td><td>胸腔，脊椎到壳体</td><td>撑起胸壳的框架</td><td>脊椎左边那些乱涂的"肋条"</td></tr>
+      <tr><td>骨盆环</td><td>腰下</td><td>髋关节的座，髋缸装在环内</td><td>大腿上方那个大椭圆"盆沿"</td></tr>
+      <tr><td>关节环</td><td>肩、肘、腕、髋、膝、踝</td><td>肩髋是球关节，其余是单轴铰链；环上的十字是转轴的端面销</td><td>各处带十字的圆环，膝盖上的交叉排线新月</td></tr>
+      <tr><td>动力核心</td><td>上胸腔，闭合壳体那一侧</td><td>提供动力，永远藏在壳后，只露一根驱动轴</td><td>无，新增但不画出</td></tr>
+      <tr><td>齿轮泵</td><td>上胸腔，开口那一侧</td><td>两枚啮合齿轮把油压进干线；图里唯一的齿轮</td><td>无，替代之前随手加的齿轮和皮带</td></tr>
+      <tr><td>蓄能器</td><td>腹腔，肚脐后面</td><td>储压，让四肢同时动作时不掉压</td><td>骨盆里那根大斜缸旁的圆块可以理解为它的接口</td></tr>
+      <tr><td>液压缸</td><td>每个关节一支</td><td>关节的"肌肉"：肩缸在胸腔，肘缸在上臂，腕缸在前臂，髋缸在骨盆，膝缸在大腿，踝缸在小腿</td><td>胸口靠肩的斜缸 = 肩缸；骨盆里的大斜缸 = 髋缸；右腿里带钥匙孔槽的东西 = 膝缸的导向槽；手臂里的杆 = 肘缸活塞杆</td></tr>
+      <tr><td>指腱</td><td>前臂到手指</td><td>手指由前臂里的小缸经钢缆拉动，和达芬奇的机械骑士一样</td><td>无，手是本轮新画的</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>核算：这套结构站得住吗</h2>
+  <p>图版里正方形边长 775 单位等于身高。按 1.75 m 的身高换算，1 单位 = 2.26 mm。下面的数字都从图上的尺寸量出来，假设写明，可以自己复核。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>检查项</th><th>图上尺寸</th><th>换算与假设</th><th>结果</th><th>判断</th></tr></thead>
+    <tbody>
+      <tr><td>肘关节活动范围</td><td>肘缸行程 30 单位，活塞杆在前臂上的力臂 13 单位</td><td>行程 68 mm，力臂 29 mm，范围 ≈ 行程 ÷ 力臂</td><td>2.3 rad ≈ 134°</td><td>人肘约 140°，够用</td></tr>
+      <tr><td>膝关节活动范围</td><td>膝缸行程 50 单位，力臂 20 单位</td><td>行程 113 mm，力臂 45 mm</td><td>2.5 rad ≈ 143°</td><td>人膝约 140°，够用；导向槽长度 ≥ 行程</td></tr>
+      <tr><td>肘缸输出力</td><td>缸径 10 单位</td><td>缸径 23 mm，工作压力 21 MPa（常见移动液压）</td><td>8.7 kN，力矩约 250 N·m</td><td>远大于举起前臂加负载所需</td></tr>
+      <tr><td>膝缸输出力</td><td>缸径 16 单位</td><td>缸径 36 mm，21 MPa</td><td>21 kN，力矩约 950 N·m</td><td>60 kg 整机单腿蹲起所需约 150 N·m，余量大</td></tr>
+      <tr><td>泵的流量</td><td>泵壳直径 34 单位</td><td>齿轮直径约 30 mm、齿宽 40 mm，排量约 10 cm³/r，1500 r/min</td><td>约 15 L/min</td><td>膝缸满行程约 115 cm³，0.5 s 可走完，够快</td></tr>
+      <tr><td>执行器数量</td><td>图上画出的缸</td><td>颈 2、肩 2、肘 2、腕 2、髋 2、膝 2、踝 2 = 14 支，另加每只手 1 支指腱缸</td><td>16 支</td><td>只覆盖画面所在的矢状面自由度；肩髋的另两轴各需再加一支，藏在闭合壳那一侧</td></tr>
+      <tr><td>回路完整性</td><td>示意图</td><td>每支缸两根接管（压力、回油）；蓄能器在压力线上；油箱在最低点，回油靠重力</td><td>闭合</td><td>没有悬空的管路和没有来源的动力</td></tr>
+      <tr><td>受力路径</td><td>示意图</td><td>四肢的力经关节环进入骨盆环和肩线，再进入脊椎；肋箍只撑壳体不承载</td><td>连续</td><td>脊椎每节一个万向节，弯曲由脊旁的一对缸驱动（未画）</td></tr>
+    </tbody>
+  </table></div>
+  <p>缸的安装规则也可以在图上逐一验证：缸体固定在靠近躯干的那一段，活塞杆跨过关节铰在下一段上，铰点离转轴的距离就是力臂；缸不能装在被驱动的那一段里。</p>
+
+  <h2>画的时候怎么选</h2>
+  <p>不是把整套系统都画出来。每一个开口只讲一件事，其余的用排线压成暗部。这样每个局部都能一眼读懂，整张图也不会糊。</p>
+  <ol>
+    <li><span class="rule">胸腔（左侧掀开）：</span>主角是齿轮泵和脊椎，配角是肩缸和干线。肋箍最多两道。动力核心不露，只画穿过壳体的驱动轴。</li>
+    <li><span class="rule">上臂（掀开的那只）：</span>只画肘缸和它的活塞杆，一道箍，一根支线。</li>
+    <li><span class="rule">前臂（掀开的那只）：</span>腕缸加几根指腱，指腱穿过腕环进手掌。</li>
+    <li><span class="rule">骨盆：</span>原版的大斜缸就是髋缸，保留；旁边的圆块当蓄能器接口。</li>
+    <li><span class="rule">大腿（掀开的那只）：</span>膝缸和导向槽，原版的钥匙孔槽就是它，保留形状，把缸体补上。</li>
+    <li><span class="rule">小腿（掀开的那只）：</span>踝缸，活塞杆下到踝环。</li>
+    <li><span class="rule">所有关节环：</span>保留十字销；闭合侧的环加一弯新月排线，掀开侧的环只留细线和销。</li>
+    <li><span class="rule">线条层级：</span>壳体切口边最重，缸体和脊椎中等，管路和指腱最细。这一条比画什么更重要。</li>
+  </ol>
+
+  <h2>和原版的关系</h2>
+  <p>原版已经在用这套语言：直线缸、椎片、带销的环、导向槽。这份设计做的只是把它们连起来——缸有了动力来源，管路有了走向，齿轮有了理由。所以往下改图的原则是：原版画对的地方一律保留，只补缺的、去掉说不通的。</p>
+  <small class="note">本轮已按此设计重画了胸腔的三个方案：A 结构（肋箍 + 肩缸 + 干线）、B 动力（齿轮泵 + 肩缸 + 干线）、C 框架（桁架 + 干线）。上臂、前臂、大腿、小腿的开口还没动。</small>
+</div>

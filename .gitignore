@@ -1,2 +1,7 @@
 trip/
 .DS_Store
+
+# generated proof sheets — rebuild with tools/vitruvian/*.py
+tools/vitruvian/*.html
+!tools/vitruvian/design.html
+__pycache__/
