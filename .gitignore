@@ -5,3 +5,7 @@ trip/
 tools/vitruvian/*.html
 !tools/vitruvian/design.html
 __pycache__/
+
+# full-resolution source photos — only Photo4-web.jpg is used by index.html
+images/Photo4.jpg
+images/Photo4_m.jpg
